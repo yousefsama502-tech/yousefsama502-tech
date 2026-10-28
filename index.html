@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yousef Al-Sayed Ahmed Mohamed | Mechanical Engineering & Literary Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter, JetBrains Mono (Engineering), Crimson Pro (Novel Reader) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        serif: ['Crimson Pro', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        slate: {
+                            950: '#060911',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Blueprint Grid & Scrollbar Styling */
+        body {
+            background-color: #060911;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .blueprint-bg {
+            background-image: 
+                linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .blueprint-card {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(9, 14, 26, 0.95));
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.1);
+        }
+        .literary-card {
+            background: linear-gradient(145deg, rgba(28, 25, 23, 0.92), rgba(15, 13, 12, 0.97));
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            box-shadow: 0 10px 35px -10px rgba(245, 158, 11, 0.12);
+        }
+        /* Custom Scrollbar for Novel Reader */
+        .reader-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .reader-scroll::-webkit-scrollbar-track {
+            background: rgba(24, 24, 27, 0.6);
+            border-radius: 6px;
+        }
+        .reader-scroll::-webkit-scrollbar-thumb {
+            background: rgba(217, 119, 6, 0.5);
+            border-radius: 6px;
+        }
+        .reader-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(245, 158, 11, 0.8);
+        }
+        /* Paper Mode for Reader */
+        .reader-paper {
+            background-color: #fbf7ef !important;
+            color: #1c1917 !important;
+        }
+        .reader-paper p, .reader-paper blockquote, .reader-paper h3, .reader-paper h4 {
+            color: #292524 !important;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: #fff; color: #000; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-slate-950 font-mono font-bold text-lg shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition">
+                    YA
+                </div>
+                <div>
+                    <span class="font-bold text-white tracking-tight block leading-none">Yousef Al-Sayed</span>
+                    <span class="font-mono text-[11px] text-cyan-400 tracking-wider">STEM '27 • GPA 3.88/4.0</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-medium">
+                <a href="#engineering" class="px-3 py-2 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-microchip text-cyan-400 text-xs"></i> Engineering Blueprints
+                </a>
+                <a href="#novel" class="px-3 py-2 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900/60 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-book-open text-amber-400 text-xs"></i> Novel & Literary Work
+                </a>
+                <a href="#leadership" class="px-3 py-2 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition">
+                    Leadership & Clubs
+                </a>
+                <a href="#honors" class="px-3 py-2 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition">
+                    Global Honors
+                </a>
+                <a href="#contact" class="px-3 py-2 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition">
+                    Contact
+                </a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="hidden sm:flex items-center gap-2">
+                <button onclick="copyEmail()" class="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-mono flex items-center gap-2 transition" title="Copy Email Address">
+                    <i class="fa-regular fa-copy text-cyan-400"></i>
+                    <span id="copyEmailText">Copy Email</span>
+                </button>
+                <a href="https://www.linkedin.com/in/yousef-al-sayed-6727ab43a" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs flex items-center gap-1.5 transition shadow-md shadow-cyan-500/20">
+                    <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#engineering" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 font-medium">
+                <i class="fa-solid fa-gears text-cyan-400 mr-2"></i> Engineering Blueprints
+            </a>
+            <a href="#novel" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 font-medium">
+                <i class="fa-solid fa-feather-pointed text-amber-400 mr-2"></i> Novel: A Letter from the Dungeon of Time
+            </a>
+            <a href="#leadership" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 font-medium">
+                <i class="fa-solid fa-users text-cyan-400 mr-2"></i> Leadership & Clubs (2024–2026)
+            </a>
+            <a href="#honors" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 font-medium">
+                <i class="fa-solid fa-trophy text-amber-400 mr-2"></i> Global & National Honors
+            </a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-slate-800 font-medium">
+                <i class="fa-solid fa-envelope text-cyan-400 mr-2"></i> Contact & Details
+            </a>
+        </div>
+    </header>
+
+    <!-- Custom Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 border border-cyan-500/50 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-cyan-400 text-lg"></i>
+        <span id="toastMsg" class="text-sm font-medium">Copied to clipboard!</span>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-28 pb-20 md:pt-36 md:pb-28 blueprint-bg border-b border-slate-800/80 overflow-hidden">
+        <!-- Ambient Glows -->
+        <div class="absolute top-1/4 -left-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Column: Intro & CTAs -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs font-mono text-cyan-300">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span>NEW CAIRO STEM SCHOOL (CLASS OF 2027)</span>
+                        <span class="text-slate-600">|</span>
+                        <span class="text-amber-300">ISEF NATIONAL FINALIST</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+                        Yousef Al-Sayed <br>
+                        <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-amber-400 bg-clip-text text-transparent">
+                            Ahmed Mohamed
+                        </span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl font-medium text-slate-300 leading-relaxed">
+                        Mechanical Engineering Researcher <span class="text-cyan-400 mx-1">•</span> Embedded Systems Innovator <span class="text-amber-400 mx-1">•</span> Award-Winning Dystopian Sci-Fi Novelist
+                    </p>
+
+                    <p class="text-slate-400 text-base leading-relaxed max-w-2xl">
+                        High school senior in the Mathematics &amp; Engineering Division (<strong class="text-white">GPA: 3.88/4.0 Cumulative | 4.0 Expected</strong>). Bridging the precision of hardware engineering—designing <strong class="text-cyan-300">Rare-Earth-Free Linear Switched Reluctance Engines (LSRE V2)</strong> for electric vehicle retrofits—with the human depth of literature as the author of two 200+ page novels, including <em class="text-amber-300 font-serif text-lg">"A Letter from the Dungeon of Time"</em>.
+                    </p>
+
+                    <!-- Primary Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-3.5 pt-2">
+                        <a href="#engineering" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm flex items-center gap-2.5 shadow-lg shadow-cyan-500/25 transition transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-gears"></i>
+                            Explore Engineering Blueprints
+                        </a>
+                        <a href="#novel" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500/20 to-amber-600/10 hover:from-amber-500/30 hover:to-amber-600/20 text-amber-300 border border-amber-500/40 font-semibold text-sm flex items-center gap-2.5 transition transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-book-open"></i>
+                            Read My Novel Excerpt
+                        </a>
+                        <a href="#leadership" class="px-5 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-medium text-sm flex items-center gap-2 transition">
+                            <i class="fa-solid fa-users-gear text-cyan-400"></i>
+                            Leadership &amp; Clubs
+                        </a>
+                    </div>
+
+                    <!-- Quick Contact Strip -->
+                    <div class="pt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-mono text-slate-400 border-t border-slate-800/80">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-cyan-400"></i> New Cairo, Egypt (CEEB: 064976)
+                        </span>
+                        <a href="mailto:yousefsama502@gmail.com" class="hover:text-cyan-300 flex items-center gap-2 transition">
+                            <i class="fa-solid fa-envelope text-cyan-400"></i> yousefsama502@gmail.com
+                        </a>
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-cyan-400"></i> +20 113 212 6512
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Dual Identity Dashboard Card -->
+                <div class="lg:col-span-5">
+                    <div class="blueprint-card rounded-2xl p-6 relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                            </div>
+                            <span class="font-mono text-xs text-cyan-400">PROFILE_TELEMETRY.SYS</span>
+                        </div>
+
+                        <!-- Core Metrics Grid -->
+                        <div class="grid grid-cols-2 gap-3.5 mb-5">
+                            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5">
+                                <div class="text-xs font-mono text-slate-400">CUMULATIVE GPA</div>
+                                <div class="text-2xl font-extrabold text-white mt-1">3.88 <span class="text-xs font-mono text-emerald-400 font-normal">/ 4.0 (4.0 Exp.)</span></div>
+                                <div class="text-[11px] text-slate-400 mt-1">Top Scorer • 30,000+ STEM Pool</div>
+                            </div>
+                            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5">
+                                <div class="text-xs font-mono text-slate-400">ISEF PROTOTYPE</div>
+                                <div class="text-2xl font-extrabold text-cyan-400 mt-1">94.1% <span class="text-xs font-mono text-slate-300 font-normal">Eff.</span></div>
+                                <div class="text-[11px] text-slate-400 mt-1">LSRE V2 98kW / 248 N·m EV Motor</div>
+                            </div>
+                            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5">
+                                <div class="text-xs font-mono text-slate-400">LITERARY CORPUS</div>
+                                <div class="text-2xl font-extrabold text-amber-400 mt-1">2 Novels</div>
+                                <div class="text-[11px] text-slate-400 mt-1">200+ Pages Each &amp; 400+ Poems</div>
+                            </div>
+                            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5">
+                                <div class="text-xs font-mono text-slate-400">GLOBAL OLYMPIADS</div>
+                                <div class="text-2xl font-extrabold text-emerald-400 mt-1">Top 50</div>
+                                <div class="text-[11px] text-slate-400 mt-1">#4 ICCh • #35 Physics Brawl • #46 Math</div>
+                            </div>
+                        </div>
+
+                        <!-- Philosophical Quote Box -->
+                        <div class="rounded-xl bg-gradient-to-r from-amber-500/10 via-slate-900 to-cyan-500/10 border border-amber-500/30 p-4">
+                            <p class="font-serif italic text-amber-200/90 text-base leading-snug">
+                                “Names are little houses; keeping them in memory keeps a roof over their heads, while leaving them to be forgotten leaves them to rot in the open.”
+                            </p>
+                            <div class="mt-2 flex items-center justify-between text-xs font-mono text-slate-400">
+                                <span>— Opening line, A Letter from the Dungeon of Time</span>
+                                <span class="text-amber-400">1st Place Cairo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: FLAGSHIP ENGINEERING RESEARCH & BLUEPRINTS -->
+    <section id="engineering" class="py-20 bg-slate-950 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
+                        <i class="fa-solid fa-compass-drafting"></i> Mechanical, Electromagnetic &amp; Control Engineering
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Flagship Engineering Research</h2>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md">
+                    From lathe-turned 4140 chromoly crankshafts and 3-phase silicon-steel stators to STM32F411 hardware current-chopping and closed-loop agricultural automation.
+                </p>
+            </div>
+
+            <!-- FLAGSHIP PROJECT 1: LSRE V2 & TOYOTA COROLLA EV CONVERSION -->
+            <div class="blueprint-card rounded-2xl p-6 sm:p-8 mb-12">
+                <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-6 mb-6">
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-2">
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-semibold">
+                                REGENERON ISEF NATIONAL FINALIST
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-mono text-xs">
+                                0.0g RARE-EARTH • 0.0g COBALT
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 font-mono text-xs">
+                                Co-Lead Mechanical Engineer
+                            </span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white">
+                            Linear Switched Reluctance Engine (LSRE V2) &amp; Toyota Corolla (2ZR-FE 1.8L) EV Conversion Blueprint
+                        </h3>
+                    </div>
+                    <div class="text-right font-mono">
+                        <div class="text-xs text-slate-400">NET CONVERSION COST</div>
+                        <div class="text-2xl font-bold text-emerald-400">$4,150 <span class="text-xs text-slate-400 font-normal">(205,050 EGP)</span></div>
+                        <div class="text-[11px] text-cyan-400">2.6-Year Payback • &gt;78% Carbon Cut</div>
+                    </div>
+                </div>
+
+                <!-- Key Engineering Metrics Strip -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8 font-mono">
+                    <div class="bg-slate-900/90 border border-slate-800/90 rounded-xl p-3">
+                        <div class="text-[11px] text-slate-400">FULL-SCALE POWER</div>
+                        <div class="text-lg font-bold text-white mt-0.5">98 kW <span class="text-xs text-cyan-400">Cont.</span></div>
+                        <div class="text-[11px] text-slate-400">115 kW Peak @ 4428 RPM</div>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-800/90 rounded-xl p-3">
+                        <div class="text-[11px] text-slate-400">CRANKSHAFT TORQUE</div>
+                        <div class="text-lg font-bold text-cyan-400 mt-0.5">248.0 N·m</div>
+                        <div class="text-[11px] text-emerald-400">+43.4% vs Stock 2ZR-FE</div>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-800/90 rounded-xl p-3">
+                        <div class="text-[11px] text-slate-400">SYSTEM EFFICIENCY</div>
+                        <div class="text-lg font-bold text-white mt-0.5">94.1% <span class="text-xs text-cyan-400">Motor</span></div>
+                        <div class="text-[11px] text-slate-400">91.15% Bench (502.4W)</div>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-800/90 rounded-xl p-3">
+                        <div class="text-[11px] text-slate-400">BENCH PROTOTYPE</div>
+                        <div class="text-lg font-bold text-white mt-0.5">Ø24×46.8 <span class="text-xs text-cyan-400">mm</span></div>
+                        <div class="text-[11px] text-slate-400">3-Ph 6S2P • 160.8N Thrust</div>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-800/90 rounded-xl p-3">
+                        <div class="text-[11px] text-slate-400">SADDLE BATTERY</div>
+                        <div class="text-lg font-bold text-emerald-400 mt-0.5">38.4 kWh</div>
+                        <div class="text-[11px] text-slate-400">LiFePO4 • 265 km Range</div>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-800/90 rounded-xl p-3">
+                        <div class="text-[11px] text-slate-400">BLENDED REGEN</div>
+                        <div class="text-lg font-bold text-amber-400 mt-0.5">-65 kW</div>
+                        <div class="text-[11px] text-slate-400">0–30mm Pure Elec. Stroke</div>
+                    </div>
+                </div>
+
+                <!-- Interactive Technical Dossier Tabs -->
+                <div class="border-b border-slate-800 mb-6 flex flex-wrap gap-2 no-print" role="tablist">
+                    <button onclick="switchEngTab('tab-mech')" id="btn-tab-mech" class="eng-tab-btn px-4 py-2.5 rounded-t-xl font-mono text-xs font-bold bg-cyan-500 text-slate-950 transition flex items-center gap-2">
+                        <i class="fa-solid fa-cogs"></i> 1. Electromagnetic &amp; Mechanical Architecture
+                    </button>
+                    <button onclick="switchEngTab('tab-mcu')" id="btn-tab-mcu" class="eng-tab-btn px-4 py-2.5 rounded-t-xl font-mono text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 transition flex items-center gap-2">
+                        <i class="fa-solid fa-microchip"></i> 2. STM32F411 "Black Pill" &amp; Current Profiling
+                    </button>
+                    <button onclick="switchEngTab('tab-ev')" id="btn-tab-ev" class="eng-tab-btn px-4 py-2.5 rounded-t-xl font-mono text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 transition flex items-center gap-2">
+                        <i class="fa-solid fa-car-battery"></i> 3. Corolla 2ZR-FE Drop-In, CAN-Bus &amp; Regen Pedal
+                    </button>
+                    <button onclick="switchEngTab('tab-bom')" id="btn-tab-bom" class="eng-tab-btn px-4 py-2.5 rounded-t-xl font-mono text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 transition flex items-center gap-2">
+                        <i class="fa-solid fa-table-list"></i> 4. Scaling Matrix &amp; Cairo Sourcing BOM
+                    </button>
+                </div>
+
+                <!-- TAB 1 CONTENT: Electromagnetic & Mechanical -->
+                <div id="tab-mech" class="eng-tab-content grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 space-y-3">
+                        <h4 class="text-cyan-400 font-mono text-sm font-bold uppercase flex items-center gap-2">
+                            <i class="fa-solid fa-magnet"></i> Stator, Mover &amp; 2-Stage Potting Workflow
+                        </h4>
+                        <ul class="space-y-2.5 text-sm text-slate-300 leading-relaxed list-disc pl-5">
+                            <li><strong>Locked Hexagonal Bore Geometry (Ø24.000 × 46.80 mm):</strong> 6 stator E-comb back-iron stacks (72 sheets of 0.35 mm M270-35A CRNO silicon steel) + 36 detachable Top-Hat pole caps (432 sheets) with 3 mini-teeth (1.20 mm tooth / 1.20 mm slot, 0.80 mm linear step).</li>
+                            <li><strong>Detachable Bobbin Winding &amp; 6S2P Bus:</strong> 36 coils wound on a 3D-printed split mandrel (64 turns of Ø0.28 mm Class-H wire per coil). Connected in 6S2P (6 series facets/ring, 2 parallel rings), cutting MOSFET conduction loss by 9× vs. 2S6P and generating 160.75 N plateau thrust ($dL_{eff}/dx = 10.94\text{ N/A}^2$).</li>
+                            <li><strong>30 Centering Needle Rollers:</strong> 5 rows × 6 facets of Ø1.50 × 4.00 mm hardened 100Cr6/WL20 rollers snapped into molded stator pockets, protruding 0.14 mm to lock a 0.150 mm air gap and cut side-thrust friction by 94% ($\mu_{roll}=0.004$, only 3.15 W mechanical loss).</li>
+                            <li><strong>Thermal Epoxy Matrix:</strong> Stator potted in degassed Kemapoxy 150 + 35 wt% $\text{Al}_2\text{O}_3$ + 10 wt% PTFE ($\Delta T_{coil} = 21.4^\circ\text{C}$). Mover cast around a lathe-turned 7075-T6 ribbed spine (8.6× safety factor against 503g TDC acceleration).</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 space-y-3">
+                        <h4 class="text-cyan-400 font-mono text-sm font-bold uppercase flex items-center gap-2">
+                            <i class="fa-solid fa-wrench"></i> Bottom-End, Billet Crankshaft &amp; Split Conrod
+                        </h4>
+                        <ul class="space-y-2.5 text-sm text-slate-300 leading-relaxed list-disc pl-5">
+                            <li><strong>Tie-Rod Preloaded 3D-Printed Block:</strong> Printed horizontally in PETG/PA6-CF with a press-fit Ø24.00 mm H7 aluminum thermal liner sleeve. Clamped by four M6 Grade 8.8 steel through-bolts torqued to 1.80 N·m (6,000 N total compressive preload—14× peak engine forces, zero inter-layer delamination).</li>
+                            <li><strong>Monolithic 1-Piece Billet Crankshaft:</strong> Machined on a manual 4-jaw lathe from a single solid bar of 4140 chromoly / 1045 steel with $r = 10.00\text{ mm}$ eccentric offset, Ø10.00 mm h6 integral crankpin, and $R = 1.50\text{ mm}$ root fillets (increasing fatigue strength by 3.4×).</li>
+                            <li><strong>2-Piece Split 7075-T6 Aluminum Conrod:</strong> 9.6 g total mass ($L_{rod} = 40.00\text{ mm}$) bolted with two M3 Grade 12.9 screws prior to boring the Ø14.00 mm H7 big-end hole for &lt;2 μm alignment. Fitted with jewelers-saw split Sintered Oilite Bronze bushings, achieving a 16.2× tensile safety factor and 30.4× Euler buckling safety factor ($F_{crit} = 9,600\text{ N}$) at 6,000 RPM.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- TAB 2 CONTENT: STM32F411 Black Pill & Firmware -->
+                <div id="tab-mcu" class="eng-tab-content hidden grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 space-y-3">
+                        <h4 class="text-cyan-400 font-mono text-sm font-bold uppercase flex items-center gap-2">
+                            <i class="fa-solid fa-bolt"></i> Hardware Soft-Chopping &amp; STM32F411CEU6 Pinout
+                        </h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Built around a standalone <strong>WeAct STM32F411CEU6 "Black Pill"</strong> (100 MHz Cortex-M4F). Because the chip lacks an internal DAC, channel <code class="text-cyan-300 font-mono">PB0 (TIM3_CH3)</code> outputs a 200 kHz hardware PWM filtered by a fast $1\text{ k}\Omega + 10\text{ nF}$ RC network ($\tau = 10\text{ }\mu\text{s}$) to generate the dynamic reference voltage $V_{ref}(\theta)$ for the <strong>LM393</strong> current comparator.
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                            <li><strong>150 ns Hardware Current Chopping:</strong> A single 5V <code class="text-cyan-300 font-mono">74HCT08</code> quad AND gate shifts 3.3V MCU logic to 5.0V for the three <code class="text-cyan-300 font-mono">IR2110</code> half-bridge drivers and gates high-side MOSFETs (Q1 on PA8/PA9/PA10) directly with the LM393 output.</li>
+                            <li><strong>480-Slot Quadrature Tracking:</strong> Three TCST2103 optical endstops straddle a 120-tooth flywheel rim on <code class="text-cyan-300 font-mono">PA0/PA1 (TIM2)</code> and <code class="text-cyan-300 font-mono">PA5 (EXTI5_IRQn)</code> for $0.75^\circ$ resolution and exact $0.00^\circ$ TDC zeroing.</li>
+                            <li><strong>Hardware Fault Protection:</strong> Overcurrent/overvoltage triggers <code class="text-cyan-300 font-mono">PB12 (TIM1_BKIN)</code>, shutting down all six 600V MOSFETs in &lt;50 ns.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 space-y-3">
+                        <h4 class="text-cyan-400 font-mono text-sm font-bold uppercase flex items-center gap-2">
+                            <i class="fa-solid fa-wave-square"></i> Piston-Linked Current Envelope &amp; Turn-Off Advance
+                        </h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Linking $I_{ref}(\theta, x)$ to exact crank-slider kinematics $x(\theta) = r[(1-\cos\theta) + (\lambda/2)\sin^2\theta]$ ($\lambda = 0.250$) eliminates dead-zone $I^2R$ copper heating when the rod is vertical:
+                        </p>
+                        <div class="grid grid-cols-2 gap-2.5 font-mono text-xs pt-1">
+                            <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+                                <span class="text-slate-400 block">TDC DEAD ZONE (0°–27°)</span>
+                                <span class="text-cyan-300 font-bold">I_ref = 0.00 A</span> (Zero heat)
+                            </div>
+                            <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+                                <span class="text-slate-400 block">SOFT RAMP-IN (27°–42°)</span>
+                                <span class="text-cyan-300 font-bold">3.68 A → 5.42 A</span>
+                            </div>
+                            <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+                                <span class="text-slate-400 block">PEAK WINDOW (42°–132°)</span>
+                                <span class="text-emerald-400 font-bold">5.42 A Flat-Top</span> (160.8N)
+                            </div>
+                            <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+                                <span class="text-slate-400 block">TURN-OFF ADVANCE (6000 RPM)</span>
+                                <span class="text-amber-400 font-bold">x_off = 0.85 mm</span> (-310V Demag)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3 CONTENT: Toyota Corolla EV Conversion -->
+                <div id="tab-ev" class="eng-tab-content hidden grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 space-y-2.5">
+                        <h4 class="text-cyan-400 font-mono text-sm font-bold uppercase">1. In-Block 2ZR-FE Architecture</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Targets Egypt's ubiquitous <strong>Toyota Corolla (E170/E210, 1.8L 2ZR-FE)</strong>. Retains the factory aluminum block, forged crankshaft, oil/water pumps, A/C compressor, and CVTi-S transaxle. Replaces the 16V cylinder head with a CNC 6061-T6 water-jacketed 4-cylinder LSRE Stator Deck bolted to the 10× M11 factory head threads.
+                        </p>
+                        <p class="text-xs font-mono text-emerald-400 pt-1">
+                            ✓ Active Crank Parking @ 75° ATDC (248 N·m instant start) + 1.4 kW starter backup.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 space-y-2.5">
+                        <h4 class="text-cyan-400 font-mono text-sm font-bold uppercase">2. 122-Pin OEM CAN-Bus Spoofing VCU</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Plugs straight into the factory Sumitomo engine harness with zero wire cutting. Broadcasts 500 kbps ISO 15765-4 Toyota CAN frames (<code class="text-cyan-300">0x2C4</code> RPM for 100% Electric Power Steering at standstill, <code class="text-cyan-300">0x100/0x2C1</code> shaft torque for seamless CVTi-S shifting, <code class="text-cyan-300">0x224</code> ABS/VSC stability, and <code class="text-cyan-300">0x398</code> belt-driven A/C idle control).
+                        </p>
+                        <p class="text-xs font-mono text-cyan-300 pt-1">
+                            ✓ Stock Fuel Gauge Needle mapped to 0–100% Battery SoC via 8Ω–110Ω emulator.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 space-y-2.5">
+                        <h4 class="text-cyan-400 font-mono text-sm font-bold uppercase">3. Blended Regen Pedal &amp; LFP Pack</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            <strong>Zero Trunk Loss:</strong> 120S1P 100Ah (38.4 kWh, 384V) Cobalt-Free $\text{LiFePO}_4$ cells mounted in the vacated 50L under-seat fuel tank and exhaust tunnel (265 km urban range).
+                            <br><strong>2-Stage Brake Pedal:</strong> 0–30 mm foot travel slides through a 12 mm lost-motion slot, delivering up to <strong>-65 kW (165 A)</strong> pure electric regen before engaging hydraulic discs at 30–85 mm.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- TAB 4 CONTENT: Scaling Matrix & BOM -->
+                <div id="tab-bom" class="eng-tab-content hidden">
+                    <div class="overflow-x-auto rounded-xl border border-slate-800">
+                        <table class="w-full text-left border-collapse font-mono text-xs">
+                            <thead>
+                                <tr class="bg-slate-900 text-cyan-400 border-b border-slate-800">
+                                    <th class="p-3">Engineering Parameter / Subsystem</th>
+                                    <th class="p-3">1-Cyl Bench Prototype (LSRE V2)</th>
+                                    <th class="p-3">Full-Scale 4-Cyl Corolla (2ZR-FE)</th>
+                                    <th class="p-3">Economic / Material Benchmark</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/70 text-slate-300 bg-slate-950/60">
+                                <tr>
+                                    <td class="p-3 font-semibold text-white">Cylinder Bore × Stroke</td>
+                                    <td class="p-3">Ø24.00 × 20.00 mm (1 Cyl)</td>
+                                    <td class="p-3">Ø80.50 × 88.30 mm (4 Cyl)</td>
+                                    <td class="p-3 text-slate-400">3.354× bore; 4.415× stroke ($r=44.15\text{ mm}$)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-white">Active Air-Gap Area &amp; Gap</td>
+                                    <td class="p-3">1,179 $\text{mm}^2$ / 0.15 mm gap</td>
+                                    <td class="p-3">157,920 $\text{mm}^2$ / 0.25 mm gap</td>
+                                    <td class="p-3 text-slate-400">133.9× active area; $\text{Si}_3\text{N}_4$ / WL20 rollers</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-white">Plateau Thrust &amp; Torque</td>
+                                    <td class="p-3">160.8 N / 0.80 N·m Mean</td>
+                                    <td class="p-3">2,805 N Pk / 248.0 N·m Pk</td>
+                                    <td class="p-3 text-emerald-400">+43.4% torque over stock gasoline 2ZR-FE</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-white">Power &amp; Efficiency</td>
+                                    <td class="p-3">502.4 W @ 6000 RPM (91.15%)</td>
+                                    <td class="p-3">98 kW Cont / 115 kW Pk (94.1%)</td>
+                                    <td class="p-3 text-cyan-300">Driven by 650V Automotive SiC MOSFETs</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-white">Turnkey Conversion Cost</td>
+                                    <td class="p-3">100% Downtown Cairo Sourced</td>
+                                    <td class="p-3">$5,180 Gross – $1,030 ICE Rebate</td>
+                                    <td class="p-3 text-emerald-400 font-bold">$4,150 Net (205,050 EGP) • 2.6-Yr ROI</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECONDARY ENGINEERING PROJECTS GRID (CAPSTONE & IGNITED COMPETITION) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Project 2: Closed-Loop Smart Aquaculture/Greenhouse -->
+                <div class="blueprint-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/40 text-blue-300 font-mono text-xs font-semibold">
+                                2× CAPSTONE TEAM LEADER (5 PROJECTS)
+                            </span>
+                            <span class="font-mono text-xs text-slate-400">2025 – 2026</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">
+                            Engineering the Living System: Automated Closed-Loop Control for Smart Aquaculture &amp; Greenhouse Agriculture
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Led multi-disciplinary engineering teams across 5 STEM capstone challenges to design and construct a portable, recycled-material smart farm prototype (10L aquaculture / 0.25 $\text{m}^2$ crop area) addressing Egypt's Grand Challenges in food security, water pollution, and waste recycling.
+                        </p>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-mono mb-4">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                                <span>Calibrated 3-parameter real-time sensor feedback loop with documented calibration curves &amp; error bars.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                                <span>Rule-based &amp; adaptive actuator algorithms restoring system stability across 6+ hours of autonomous operation and 5 consecutive days of outdoor telemetry logging.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                                <span>Preloaded multi-species environmental database library with measured watt-level actuator power optimization.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-2 font-mono text-[11px] text-cyan-300">
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">Closed-Loop Feedback</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">Sensor Calibration</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">Recycled Prototyping</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Ignited Web Dev & Competition Victory -->
+                <div class="blueprint-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-mono text-xs font-semibold">
+                                1ST PLACE WINNER • IGNITED COMPETITION
+                            </span>
+                            <span class="font-mono text-xs text-slate-400">2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">
+                            Ignited Web Development Bootcamp &amp; STEM Competition – Winning Team Leader (12 Members)
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Completed an intensive web development training program followed by a competitive engineering &amp; tech challenge, serving as Team Leader of a 12-student team that won the competition.
+                        </p>
+                        <ul class="space-y-1.5 text-xs text-slate-300 font-mono mb-4">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                <span>Led a 12-member team to 1st Place victory by directing project execution, organizing workshops, and building the official platform website to promote water conservation.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                                <span>Advanced sustainable water-conservation engineering work that also qualified for the Second Round of Cairo Water Week.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-2 font-mono text-[11px] text-emerald-300">
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">Web Development Bootcamp</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">1st Place Winning Team Lead</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800">12-Member Team</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: FEATURED LITERARY WORK & INTERACTIVE NOVEL READER -->
+    <section id="novel" class="py-20 bg-gradient-to-b from-slate-950 via-[#120f0d] to-slate-950 border-b border-amber-500/20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Literary Section Header -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 text-amber-400 font-mono text-xs uppercase tracking-widest mb-2">
+                        <i class="fa-solid fa-feather-pointed"></i> 2-Time 1st Place Winner in Cairo for Literary &amp; Scientific Writing
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+                        A Letter From The Dungeon of Time
+                    </h2>
+                    <p class="text-amber-200/80 font-serif italic text-lg sm:text-xl mt-1">
+                        (A Message from the Time Cell) — A 200+ Page Dystopian Sci-Fi Novel by Yousef Al-Sayed Ahmed
+                    </p>
+                </div>
+
+                <!-- Literary Stats Badges -->
+                <div class="flex flex-wrap gap-3 font-mono text-xs">
+                    <div class="px-4 py-2.5 rounded-xl bg-stone-900/90 border border-amber-500/30 text-amber-300">
+                        <span class="block text-[10px] text-stone-400">PUBLISHED OEUVRE</span>
+                        <strong>2 Novels (200+ Pages Each)</strong>
+                    </div>
+                    <div class="px-4 py-2.5 rounded-xl bg-stone-900/90 border border-amber-500/30 text-amber-300">
+                        <span class="block text-[10px] text-stone-400">POETRY COLLECTION</span>
+                        <strong>400+ Original Poems</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- World-Building & Four Kingdoms Overview -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div class="literary-card rounded-xl p-4">
+                    <div class="text-xs font-mono text-amber-400">NORTH KINGDOM</div>
+                    <div class="text-lg font-serif font-bold text-white mt-0.5">Opalis</div>
+                    <p class="text-xs text-stone-300 mt-1">Glass houses and an artificial blue sky where the genetically "strong" masters live untouched by age or illness.</p>
+                </div>
+                <div class="literary-card rounded-xl p-4">
+                    <div class="text-xs font-mono text-amber-400">EAST MOUNTAINS</div>
+                    <div class="text-lg font-serif font-bold text-white mt-0.5">Cydus (Sidos)</div>
+                    <p class="text-xs text-stone-300 mt-1">Bare mountains, underground reactors, photonic weapons factories, and the dreaded <em>Sanatorium of Silence</em>.</p>
+                </div>
+                <div class="literary-card rounded-xl p-4">
+                    <div class="text-xs font-mono text-amber-400">WEST INDUSTRIAL ZONE</div>
+                    <div class="text-lg font-serif font-bold text-white mt-0.5">Nebula</div>
+                    <p class="text-xs text-stone-300 mt-1">Endless mask factories and toxic yellow smog that eats away at workers' lungs.</p>
+                </div>
+                <div class="literary-card rounded-xl p-4">
+                    <div class="text-xs font-mono text-amber-400">SOUTH HOMELAND</div>
+                    <div class="text-lg font-serif font-bold text-white mt-0.5">Arides</div>
+                    <p class="text-xs text-stone-300 mt-1">Adam and Sarah's ruined homeland, sprayed from the skies with the memory-erasing drug <em>Nexus</em>.</p>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE BOOK READER WIDGET -->
+            <div class="literary-card rounded-2xl overflow-hidden border border-amber-500/40 shadow-2xl">
+                
+                <!-- Reader Toolbar -->
+                <div class="bg-stone-950/90 border-b border-stone-800 px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-4 no-print">
+                    <!-- Chapter / Synopsis Switcher -->
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="switchNovelTab('synopsis')" id="btn-novel-synopsis" class="px-4 py-2 rounded-lg font-serif font-bold text-sm bg-amber-500 text-stone-950 shadow-md transition flex items-center gap-2">
+                            <i class="fa-solid fa-scroll"></i> The Award-Winning Synopsis
+                        </button>
+                        <button onclick="switchNovelTab('chapter1')" id="btn-novel-chapter1" class="px-4 py-2 rounded-lg font-serif font-semibold text-sm bg-stone-900 text-stone-300 hover:bg-stone-800 border border-stone-700 transition flex items-center gap-2">
+                            <i class="fa-solid fa-book"></i> Chapter 1: The Sanatorium of Silence (Full Text)
+                        </button>
+                        <button onclick="switchNovelTab('ps')" id="btn-novel-ps" class="px-4 py-2 rounded-lg font-serif font-semibold text-sm bg-stone-900 text-stone-300 hover:bg-stone-800 border border-stone-700 transition flex items-center gap-2">
+                            <i class="fa-solid fa-heart-pulse text-amber-400"></i> Personal Origin Story (Essay)
+                        </button>
+                    </div>
+
+                    <!-- Reader Controls (Font Size & Paper Theme) -->
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <span class="text-stone-400 hidden sm:inline">TEXT SIZE:</span>
+                        <button onclick="changeReaderFontSize(-2)" class="px-2.5 py-1.5 rounded bg-stone-900 hover:bg-stone-800 text-stone-200 border border-stone-700" title="Decrease Font Size">A-</button>
+                        <button onclick="changeReaderFontSize(2)" class="px-2.5 py-1.5 rounded bg-stone-900 hover:bg-stone-800 text-stone-200 border border-stone-700" title="Increase Font Size">A+</button>
+                        <button onclick="toggleReaderPaperMode()" id="paperModeBtn" class="px-3 py-1.5 rounded bg-stone-900 hover:bg-stone-800 text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
+                            <i class="fa-solid fa-sun"></i> <span>Sepia Paper Mode</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Scrollable Reader Viewport -->
+                <div id="novelReaderViewport" class="reader-scroll max-h-[640px] overflow-y-auto p-6 sm:p-10 md:p-12 font-serif text-lg leading-relaxed text-stone-200 space-y-6 transition-colors duration-300">
+                    
+                    <!-- TAB A: THE AWARD-WINNING SYNOPSIS -->
+                    <div id="novel-tab-synopsis" class="max-w-4xl mx-auto space-y-5">
+                        <div class="border-b border-amber-500/30 pb-4 mb-6">
+                            <span class="font-mono text-xs uppercase tracking-widest text-amber-400">1st Place Winner in Cairo for Literary Writing</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white mt-1">The Award-Winning Synopsis</h3>
+                            <p class="text-sm text-stone-400 italic mt-1">Exploring the philosophical boundaries between absolute safety and human freedom, trauma, memory, and genetic control.</p>
+                        </div>
+
+                        <p>In 3042, the air was no longer pure oxygen, but rather a thick soup of smart dust, whispering beneath the feet of passersby as if counting their steps. On the ruins of what was once known as the "Sanatorium of Silence", Elijah stood watching his hand tremble under the blue glow of Luminous… a glow that permeated the polluted clouds. It was the poison humanity had once consumed, believing it to be the potion of immortality, only to discover that it was the genetic chains of their eternal enslavement.</p>
+
+                        <p>Elijah held a secret within his body, terrified it might be exposed: a shake in his fingers unknown to his generation, and a strange emptiness whenever he watched people smile without cause. They all existed in a state of absolute satisfaction, while he felt an undeniable absence… a nameless void. He wasn't hunting for treasure; instead, he was chasing a phantom whispered of by the forbidden storytellers: a man known as the "First Madman."</p>
+
+                        <p>He ran his fingers over a ruined wall, and a strange coldness invaded his skin from the cracks of the stone. There, beneath the layers of rust and years, he found an inscription not made with a chisel, but with a soul's scream:</p>
+
+                        <blockquote class="border-l-4 border-amber-500 pl-5 py-2 my-4 italic text-amber-200 bg-amber-500/5 rounded-r-xl">
+                            "I am Adam… who swore to break the laws of time because they showed no mercy to our childhood. I am the one who dreamed of a glass house to protect the children from the cold world, but the dictators came and stole the glass to make clear coffins for your souls."
+                        </blockquote>
+
+                        <p>The blood froze in Elijah's veins. How could a forgotten child in an orphanage, a thousand years ago, predict the "Genetic Enslavement"? To solve the mystery of his collapsing world, he had to close his eyes and travel back through the dust of centuries, to the cold night where it all began… The night of the "sugar crystal" that was more precious than gold itself.</p>
+
+                        <p>The orphanage was a merciless place. Its walls dripped with dampness, and the supervisors' hearts dripped with cruelty. Adam, a twelve-year-old boy, realized early on that life was unfair. His seven-year-old little sister, Sarah, was the only reason he woke up every morning. One night, he sneaked into the cold kitchen. Not to eat, but to steal a sugar cube for Sarah, who was worn out by a severe fever. She called sugar "crystals of happiness."</p>
+
+                        <p>Bernard, a huge and merciless supervisor, caught him and growled: <em>"What are you doing, you little thief?"</em> Adam looked at the sugar in his hand, then at Bernard. He didn't beg. Instead, he said in a steady voice, <em>"She's sick. She needs something sweet to make her smile."</em></p>
+
+                        <p>Bernard showed no mercy. His heavy cane came down on the boy's back time after time, but Adam never let go of the cube. He returned to the bed, his body throbbing with pain, yet he was smiling. Then he took off his only shirt and wrapped it around her freezing feet, leaving himself shivering against the wind, while telling her about their future home: <em>"I will build you a house of glass. The sun will shine in from everywhere, and I will plant flowers for you that never wither. I will become a scientist, and I will make science serve children and those in need, so no child will ever get sick again."</em></p>
+
+                        <p>Those were the last words Sarah ever heard. In the early hours of the morning, while Adam was trying to warm her hands with his breath, she stopped shivering. She died of neglect, from a fever that could have been cured with a simple dose of medicine. Adam's tears turned into fuel for a sacred fire of cold anger. He swore to break the laws of time that allowed this injustice.</p>
+
+                        <p>In his bitter solitude, his only companion was Aileen… a witness to the tragedy of genetic extermination. She watched her father, a famous physicist, being dragged away in chains because he refused to change his research to serve the "Obedient Flock" project, and her mother turn into a blank creature with a dull smile after being injected with a primitive drug called "Nexus." At the orphanage roof, she whispered: <em>"Adam, whoever owns the code owns the human. My father died because he wanted us to stay flawed and human, rather than perfect and enslaved."</em></p>
+
+                        <p>Adam’s anger became science, and Aileen became his compass. Years later, as symbols in biophysics, the mega-corporation "Eterna" announced its ultimate drug, "Luminous." In their isolated lab, Adam and Aileen built "Sosenus": an optical transmitter that encrypted data into photons, sending them through microscopic time-rifts. On a rainy night in 2090, "Sosenus" caught an encrypted scream from the year 2473 from a young man named Kai: <em>"If you can hear us... do not finish it. You are building the tool Eterna will use to control the past and the future. Do not look at Luminous as a cure. It is a chain that learned how to smile."</em></p>
+
+                        <p>When Aileen was diagnosed with brain cancer from prolonged radiation exposure during their tests, Eterna offered to heal her in minutes with an upgraded dose of Luminous in exchange for the Sosenus research. Aileen looked Adam in the eye: <em>"If you inject me with Luminous, my body will heal, but the Aileen you love will be gone forever. Do not kill my soul to save my body."</em> Ultimately sacrificing her consciousness to show Adam the truth, Aileen took the dose—and a week later, she was brain-dead long before her heart ever stopped.</p>
+
+                        <p>Arrested and thrown into the "Sanatorium of Silence," forcibly injected with Luminous over and over, Adam clung to a single memory—the taste of the sugar cube melting in Sarah's mouth—and used a sharp stone to carve his final testament across a thousand years:</p>
+
+                        <blockquote class="border-l-4 border-amber-500 pl-5 py-3 my-4 italic text-amber-200 bg-amber-500/5 rounded-r-xl space-y-2">
+                            <p>"To the living dead... to whoever reads these lines thinking their chain is a bracelet of light... I am Adam... who swore to break the laws of time because they showed no mercy to our childhood.</p>
+                            <p>I love you, and the pain of losing you tears me apart, but I kiss that pain because it is the only proof that I am still Adam. Luminous is no cure, but an amputation of the soul. How can you know joy if you have never tasted the salt of tears?</p>
+                            <p>These letters are not ink; they are fragments of my soul. Take them, cut your hands on them, bleed, feel pain... for the moment you feel the sting of the wound, you will know Luminous has lost, and that you have turned human once again. Break the glass... let the air in... let life in. —Adam."</p>
+                        </blockquote>
+
+                        <p>When Elijah finished reading the message in 3042, a single hot tear rolled down his cold cheek—the antidote history had been holding out for. Grabbing a sharp stone, he cut his own palm and carved his reply right next to Adam's testament: <em>"I hear you, Adam... the light isn't dead, and the pain is coursing through our veins once again... it is time to wake up."</em> The age of glass was over... the age of awakening had begun.</p>
+                    </div>
+
+                    <!-- TAB B: CHAPTER ONE FULL EXCERPT -->
+                    <div id="novel-tab-chapter1" class="hidden max-w-4xl mx-auto space-y-5">
+                        <div class="border-b border-amber-500/30 pb-4 mb-6">
+                            <span class="font-mono text-xs uppercase tracking-widest text-amber-400">Chapter One • Full English Translation</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white mt-1">Chapter 1: The Sanatorium of Silence</h3>
+                        </div>
+
+                        <p>I am a lot older now than the kid I am about to tell you about, but some nights never age, no matter how old we get. I will tell you how things went down exactly as I saw them at seven years old and leave it to you to judge.</p>
+
+                        <p>The night I rolled into Cydus, the sky was unusually clear. I found out later that the mountain winds sweep the dust away a few hours before dawn, leaving the stars looking like tiny holes punched in a black cloth. I caught a glimpse of them through a narrow crack at the top of the truck wall, and at first, I thought they were beautiful. Then it hit me: they weren't watching over us, and they didn't care about us. They were just too far away, and that was all there was to it.</p>
+
+                        <p>There were twenty of us crammed into a steel truck, huddled close because the only warmth left in the world was our own body heat. Right in front of me sat a boy with a scar over his eyebrow, a torn shirt, and a lip he was biting down on to hold back his tears. I stretched my foot out until it bumped his. He looked at me and didn't say a thing, but he stopped biting his lip. When you are locked in a steel box, that is all you can really do: remind someone they aren't alone.</p>
+
+                        <p>My sister Sarah was fast asleep on my right shoulder. She was five, and so tiny that I sometimes forgot she was even breathing. Her little fist was clutching the hem of my shirt like it always did, even in her sleep. That had been our game for the last year: she holds onto me, I hold onto her, and neither of us gets lost.</p>
+
+                        <p>A year earlier, my mom and dad walked out of our house in Arides and never came back. After that, Sarah and I lived among the ruins, crashing in an old concrete pipe. Last winter, when gray snow blanketed the city, I dug a stale crust out of a dumpster behind an abandoned bakery, broke it in half, handed Sarah the bigger piece, and put on a fake, cheerful voice. "I don't really feel like bread today. I'm stuffed." That night, when I thought she was fast asleep, I felt something tiny being slipped into my palm. It was a handful of fine crumbs she had kept hidden in her fist all day long. "I'm not full, Ado," she whispered. "And you aren't either. I know." From that night on, we had an unspoken rule: whatever we get gets split right down the middle, and we never lie to each other.</p>
+
+                        <p>Sarah opened her eyes just a sliver in the dark of the truck and mumbled in a sleepy voice, "Ado, tell me a story about the star. The one that never goes to sleep."</p>
+
+                        <blockquote class="border-l-4 border-amber-500 pl-5 py-2 my-4 italic text-amber-200 bg-amber-500/5 rounded-r-xl">
+                            "There was once a tiny star, the smallest star of them all, who was terrified she would fall out of the sky if she fell asleep. So, she stayed up every single night, getting more and more exhausted, until the moon finally came over and asked her, 'Why don't you get some sleep?' She told him, 'I'm scared of falling.' The moon just reached out his silver hand, grabbed hers, and said, 'I've got you. You will never fall as long as I am holding on.' So, the little star finally went to sleep, and she never fell. And every night since then, the moon holds her hand and walks her across the entire sky until dawn breaks."
+                        </blockquote>
+
+                        <p>After what felt like hours, the truck screeched to a sudden halt in front of Gate 07. Two men were waiting for us: Bernard, leaning on an ebony cane that tapped the tiles like a slow countdown, and Malum, a massive bald man in a spotless white suit. Bernard spoke in a low tone: <em>"Welcome to the Sanatorium of Silence. I won't ask for your names or who your parents are, because all of that died at the doorstep. Here, you get numbers, you eat based on how hard you work, and you learn that silence is cheaper than speaking up."</em></p>
+
+                        <p>Malum clamped a tin bracelet onto every kid's wrist. My bracelet read 417, and Sarah's read 418. During the room lottery, a twelve-year-old girl with sharp hazel eyes scrubbing the tiles deliberately knocked over her steaming water bucket to scatter the slips, sorting them with lightning speed so Sarah and I would both be placed together in Room 4 with her and a four-year-old boy named Arthur clutching a patched-up cloth rabbit.</p>
+
+                        <p>"I am Lilith," she whispered inside the locked room. "If anyone asks for your name, give them your number. Names are only spoken inside this room, and only in a whisper." I pulled the half-dried date I had saved from my pocket, broke it into four tiny pieces, and handed them to Sarah, Arthur, and Lilith with zero strings attached.</p>
+
+                        <p>The next morning, Rooms 4 and 5 were paired on work detail alongside Noah, Mira, Casper, and Elias. Elias calculated the cruel math of the facility behind his cracked glasses: <em>"Eight kids today... Grand total is twenty-three Coins. And we need twenty-four, because every kid needs three Coins. Whoever isn't hungry won't work harder. Whoever is starving dies. But whoever is just a little bit hungry every single day works harder. That is their math."</em></p>
+
+                        <p>To protect Casper's smog-damaged lungs from hitting day three of coughing—which meant being dragged to the basement—I volunteered to climb the pitch-black north wing smokestack with a rope tied around my waist while Noah hummed our mother's lullaby from below. Right at the bend in the smokestack, under a razor-thin sliver of gray light, I saw dozens of tiny names scratched into the soot-covered bricks by fingernails: <em>Jude. Rayan. Salma. Youssef. Haneen.</em> And at the bottom: <strong>"We were here."</strong></p>
+
+                        <p>At sunset, after paying sixteen Coins for soup at the window of the lobotomized kitchen worker ("Mr. Thank You"), only seven Coins remained—seven small loaves of bread for eight starving children. When the older kids began offering to skip their turn, an idea hit me:</p>
+
+                        <blockquote class="border-l-4 border-amber-500 pl-5 py-2 my-4 italic text-amber-200 bg-amber-500/5 rounded-r-xl">
+                            "We split every single loaf into eight pieces," I said. "Then every one of us takes seven pieces."<br>
+                            Elias stared at the tray behind his cracked glasses. "Seven loaves for eight people... everyone takes seven-eighths. Nobody starves alone."<br>
+                            "Yeah," I said. "Hunger gets smaller if you split it up. But nobody can carry all of it on their own."
+                        </blockquote>
+
+                        <p>We split the bread using the sharp edge of Elias's thumbnail until there were fifty-six tiny chunks sitting in front of us. It was the smallest meal I had ever eaten in my entire life. And it was the best meal, too.</p>
+
+                        <p>That night, through the tiny air vent between Rooms 4 and 5, the children whispered the nightly roll call of the nineteen kids who had disappeared so no one could ever convince them they hadn't existed. Before drifting off, Lilith whispered in the dark: <em>“My grandpa said that names are tiny houses… committing them to memory keeps a roof over their head. However, letting them fade into oblivion means leaving them out to rot. I am keeping eighteen houses safe in my head. And today, I had to build one for Leith. If I go down, I need you to promise me… promise me you will build a roof for me.”</em></p>
+                    </div>
+
+                    <!-- TAB C: PERSONAL STATEMENT (ORIGIN STORY) -->
+                    <div id="novel-tab-ps" class="hidden max-w-4xl mx-auto space-y-5">
+                        <div class="border-b border-amber-500/30 pb-4 mb-6">
+                            <span class="font-mono text-xs uppercase tracking-widest text-amber-400">Personal Essay • The Real-Life Story Behind the Novel</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white mt-1">Keeping a Roof Over Their Heads</h3>
+                        </div>
+
+                        <p>“Names are little houses; keeping them in memory keeps a roof over their heads, while leaving them to be forgotten leaves them to rot in the open.” I wrote this opening line in my novel, <em>A Message from the Time Cell</em>, yet lived its weight years earlier. When I was eight, my six-year-old sister passed away. Days before she died, sensing her terror, I told her about a little star afraid of falling asleep and dropping from the sky, until the moon held her hand and promised she would never fall. Still, she died. Worse, within just a few years of her death, she had begun fading from family conversations, as if she had never existed.</p>
+
+                        <p>I didn’t grasp the cruelty of that fading until a failed farming project left my family stranded for two years in an unfinished, roofless rest house. On rainy nights, after hauling away mud-soaked carpets, I stood drenched, covering our computer and fridge with plastic while my mother and brother scrambled to line up pots, plates, and tubs to catch water pouring onto the bare floor. Standing there, I finally knew what it meant to be left without a roof: forgetting my sister had stripped her house bare under the rain.</p>
+
+                        <p>Against all this, writing became my refuge. Losing my sister at eight, and years later living on that distant land without stable electricity or running water, left me feeling powerless; a child’s dreams could not buy a concrete roof or stop death. Yet in my notebook, under dim light, I made the rules. I breathed my sister’s soul into “Sarah,” wove our star-and-moon tale into her dialogue, and made my protagonist, “Adam,” keep the promise I could not: building her a “glass house.” Sunlight poured through every wall, banishing the cold rain that soaked my reality and barring any sickness from ever stealing someone we loved.</p>
+
+                        <p>Building that world, however, forced me to confront my own weakness. In my story, I invented a drug that erases sad memories and numbs pain. While writing, a terrifying paradox hit home: erasing the pain of losing my sister inside my glass house meant erasing my love for her too, because grief is not the opposite of love, but its price, and the only proof left that we truly loved.</p>
+
+                        <p>That truth stayed mere ink until I moved into my high school dorms. There, I traded my fragile glass house for a brotherhood of flesh and blood where “I” melted into “we” in every meal we split and every late night we spent pulling each other through homesickness. One night, a glass cup shattered as my roommate washed it, driving a shard deep into his palm. The blood would not stop, and my helplessness hurt more than the wound itself. I learned we don’t survive a harsh world by deleting pain, but by sharing it until it shrinks. From that bond, I wrote my novel’s most honest scene: eight starving children in a cell dividing seven small loaves into fifty-six equal pieces, so no one goes hungry alone.</p>
+
+                        <p>This belief soon stepped off the page into our school library, which I was trusted to manage for all three years. One afternoon, a freshman sat across from my desk, his voice shaking as he considered quitting a writing contest, terrified his story about his late father would be judged. Closing the borrowing log, I pulled out my prize-winning novel summary and showed him the crossed-out margins where I once hid my own grief before learning to write honestly. We stayed until lockup, reworking his opening paragraph until his hands stopped trembling. The next morning, he quietly placed his finished entry on my desk.</p>
+
+                        <p>I know my own day will come, and like my little star, I will leave only my name behind. I no longer write just to keep the rain off my sister’s memory. Now, I also sit beside others as they shelter their loved ones in words, so that when I close my eyes, my own little house will not be left roofless in the open.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: LEADERSHIP, CLUBS & COMMUNITY IMPACT (CLEANLY SEPARATED CARDS) -->
+    <section id="leadership" class="py-20 bg-slate-950 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <div class="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
+                    <i class="fa-solid fa-people-group"></i> Mentorship, Student Clubs &amp; Campus Governance
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Leadership, Clubs &amp; Teaching Impact</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                
+                <!-- Role 1: Chief Librarian (2024 - 2026 Present) -->
+                <div class="blueprint-card rounded-2xl p-5 hover:border-amber-500/40 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                                <i class="fa-solid fa-book-bookmark"></i>
+                            </div>
+                            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">2024 – 2026 (Present)</span>
+                        </div>
+                        <div class="font-mono text-[11px] text-amber-400 mb-1">NEW CAIRO STEM SCHOOL LIBRARY</div>
+                        <h3 class="text-base font-bold text-white mb-2">Chief Librarian &amp; Official Broadcaster</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            First student in school history elected Chief Librarian for three consecutive years. Managed cataloging, borrowing logs, and creative writing mentorship for 300+ boarding students while leading daily school broadcasts.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Role 2: Ignited Competition Team Leader (2025) -->
+                <div class="blueprint-card rounded-2xl p-5 hover:border-emerald-500/40 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">2025</span>
+                        </div>
+                        <div class="font-mono text-[11px] text-emerald-400 mb-1">IGNITED WEB DEV &amp; STEM COMPETITION</div>
+                        <h3 class="text-base font-bold text-white mb-2">Winning Team Leader (12-Member Team)</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Completed intensive web development training and led a 12-member team to 1st Place victory in the Ignited competition; built the official website and directed engineering projects for water conservation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Role 3: Chemistry Peer Mentorship (2024 - 2025) -->
+                <div class="blueprint-card rounded-2xl p-5 hover:border-cyan-500/40 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                                <i class="fa-solid fa-chalkboard"></i>
+                            </div>
+                            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-slate-900 text-cyan-300 border border-slate-800">2024 – 2025</span>
+                        </div>
+                        <div class="font-mono text-[11px] text-cyan-400 mb-1">ACADEMIC PEER MENTORSHIP</div>
+                        <h3 class="text-base font-bold text-white mb-2">Senior Chemistry Peer Mentor</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Delivered 32+ hours of free instructional lectures and problem-solving sessions, mentoring 60+ junior STEM students in organic, analytical, and physical chemistry.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Role 4: Nutshell Club (2024 - 2025) -->
+                <div class="blueprint-card rounded-2xl p-5 hover:border-cyan-500/40 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/30 flex items-center justify-center text-teal-400">
+                                <i class="fa-solid fa-flask-vial"></i>
+                            </div>
+                            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-slate-900 text-teal-300 border border-slate-800">2024 – 2025</span>
+                        </div>
+                        <div class="font-mono text-[11px] text-teal-400 mb-1">NUTSHELL SCIENCE CLUB</div>
+                        <h3 class="text-base font-bold text-white mb-2">Chemistry Department Leader</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Directed the Chemistry Department at Nutshell Club, designing curriculum guides, supervising scientific content creation, and organizing interactive chemistry sessions for club members.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Role 5: TEDx Head of Content Writing (2024 - 2025) -->
+                <div class="blueprint-card rounded-2xl p-5 hover:border-red-500/40 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400">
+                                <i class="fa-solid fa-microphone-lines"></i>
+                            </div>
+                            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-slate-900 text-red-300 border border-slate-800">2024 – 2025</span>
+                        </div>
+                        <div class="font-mono text-[11px] text-red-400 mb-1">TEDx EVENT ORGANIZATION</div>
+                        <h3 class="text-base font-bold text-white mb-2">Head of Content Writing</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Led speaker-script development, narrative structuring, and stage storytelling for TEDx events, editing talks to blend scientific rigor with compelling human narratives.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Role 6: Arabic Language Educator (2024 - 2025) -->
+                <div class="blueprint-card rounded-2xl p-5 hover:border-purple-500/40 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-slate-900 text-purple-300 border border-slate-800">2024 – 2025</span>
+                        </div>
+                        <div class="font-mono text-[11px] text-purple-400 mb-1">LANGUAGE &amp; RHETORIC INSTRUCTION</div>
+                        <h3 class="text-base font-bold text-white mb-2">Arabic Educator (Distinguished Teacher)</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Taught Arabic grammar, rhetoric, and literary analysis for six months, earning the <strong>Distinguished Senior Teacher</strong> honor for instructional excellence.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Role 7: Mental Health Club (2024 - 2025) -->
+                <div class="blueprint-card rounded-2xl p-5 hover:border-blue-500/40 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                                <i class="fa-solid fa-hand-holding-heart"></i>
+                            </div>
+                            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-slate-900 text-blue-300 border border-slate-800">2024 – 2025</span>
+                        </div>
+                        <div class="font-mono text-[11px] text-blue-400 mb-1">MENTAL HEALTH CLUB</div>
+                        <h3 class="text-base font-bold text-white mb-2">Head of Human Resources (HR)</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Managed member recruitment, interviews, team performance tracking, and peer-support wellness initiatives across the boarding school community.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Role 8: Mathrix Mathematics Club (2024 - 2025) -->
+                <div class="blueprint-card rounded-2xl p-5 hover:border-indigo-500/40 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                                <i class="fa-solid fa-square-root-variable"></i>
+                            </div>
+                            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-slate-900 text-indigo-300 border border-slate-800">2024 – 2025</span>
+                        </div>
+                        <div class="font-mono text-[11px] text-indigo-400 mb-1">MATHRIX MATHEMATICS CLUB</div>
+                        <h3 class="text-base font-bold text-white mb-2">Recognized as Best Member</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Honored as Best Member in the Mathrix Club for active participation in olympiad mathematics preparation, peer problem-solving, and competition training.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: GLOBAL & NATIONAL HONORS SHOWCASE -->
+    <section id="honors" class="py-20 bg-slate-950 border-b border-slate-800/80 blueprint-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <div class="inline-flex items-center gap-2 text-amber-400 font-mono text-xs uppercase tracking-widest mb-2">
+                    <i class="fa-solid fa-trophy"></i> International Olympiads, Engineering Fairs &amp; Literary Prizes
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Global &amp; National Honors</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="blueprint-card rounded-xl p-5 border-l-4 border-l-cyan-400">
+                    <div class="font-mono text-xs text-cyan-400">REGENERON ISEF EGYPT</div>
+                    <div class="text-2xl font-extrabold text-white mt-1">National Finalist</div>
+                    <p class="text-xs text-slate-400 mt-2">Qualified for the Republic National Finals with the Rare-Earth-Free Linear Switched Reluctance Engine (LSRE V2).</p>
+                </div>
+
+                <div class="blueprint-card rounded-xl p-5 border-l-4 border-l-emerald-400">
+                    <div class="font-mono text-xs text-emerald-400">INT'L CHEMISTRY CHALLENGE</div>
+                    <div class="text-2xl font-extrabold text-white mt-1">4th Place Globally</div>
+                    <p class="text-xs text-slate-400 mt-2">Ranked 4th internationally out of 400 global competitors in the International Chemistry Challenge (ICCh) — Top 1%.</p>
+                </div>
+
+                <div class="blueprint-card rounded-xl p-5 border-l-4 border-l-blue-400">
+                    <div class="font-mono text-xs text-blue-400">PHYSICS BRAWL ONLINE</div>
+                    <div class="text-2xl font-extrabold text-white mt-1">35th Globally</div>
+                    <p class="text-xs text-slate-400 mt-2">Achieved 35th place worldwide in the prestigious international Physics Brawl Online competition.</p>
+                </div>
+
+                <div class="blueprint-card rounded-xl p-5 border-l-4 border-l-purple-400">
+                    <div class="font-mono text-xs text-purple-400">PURPLE COMET! MATH MEET 2026</div>
+                    <div class="text-2xl font-extrabold text-white mt-1">#46 World • #7 Egypt</div>
+                    <p class="text-xs text-slate-400 mt-2">Ranked 46th globally out of 506 teams and 7th nationally in Egypt out of 127 teams.</p>
+                </div>
+
+                <div class="blueprint-card rounded-xl p-5 border-l-4 border-l-amber-400">
+                    <div class="font-mono text-xs text-amber-400">LITERARY &amp; SCIENTIFIC WRITING</div>
+                    <div class="text-2xl font-extrabold text-white mt-1">2× 1st Place Winner</div>
+                    <p class="text-xs text-slate-400 mt-2">Won First Place in Cairo for Literary and Scientific Writing for two consecutive years; authored two 200+ page novels.</p>
+                </div>
+
+                <div class="blueprint-card rounded-xl p-5 border-l-4 border-l-cyan-400">
+                    <div class="font-mono text-xs text-cyan-400">OPEN PHYSICS OLYMPIAD (OPhO)</div>
+                    <div class="text-2xl font-extrabold text-white mt-1">146th Globally</div>
+                    <p class="text-xs text-slate-400 mt-2">Ranked 146th worldwide in the rigorous Open Physics Olympiad theoretical &amp; applied physics rounds.</p>
+                </div>
+
+                <div class="blueprint-card rounded-xl p-5 border-l-4 border-l-emerald-400">
+                    <div class="font-mono text-xs text-emerald-400">IGNITED &amp; CAIRO WATER WEEK</div>
+                    <div class="text-2xl font-extrabold text-white mt-1">1st Place &amp; Qualifier</div>
+                    <p class="text-xs text-slate-400 mt-2">Won 1st Place as Team Leader in the Ignited Web/STEM Competition &amp; qualified for Round 2 of Cairo Water Week.</p>
+                </div>
+
+                <div class="blueprint-card rounded-xl p-5 border-l-4 border-l-amber-400">
+                    <div class="font-mono text-xs text-amber-400">CAMPUS DISTINCTIONS</div>
+                    <div class="text-2xl font-extrabold text-white mt-1">Top 4 Chess &amp; 2× Dorm</div>
+                    <p class="text-xs text-slate-400 mt-2">Ranked Top 4 school chess player (defeated 1800-Elo opponent) &amp; won 1st Place Best Dorm Room Award for 2 consecutive years.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CONTACT & ADMISSIONS VERIFICATION FOOTER -->
+    <footer id="contact" class="py-16 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="blueprint-card rounded-2xl p-8 sm:p-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-3">
+                        <span class="font-mono text-xs text-cyan-400 uppercase tracking-widest">Connect &amp; Academic Verification</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white">Ready to Collaborate &amp; Innovate</h2>
+                        <p class="text-slate-400 text-sm leading-relaxed max-w-xl">
+                            Currently applying for Fall 2027 Undergraduate Admissions in Mechanical Engineering, Computer Science, Physics, and Creative Writing. All engineering blueprints, STM32 firmware lookup tables, and full novel manuscripts are available upon request.
+                        </p>
+                        <div class="pt-2 text-xs font-mono text-slate-400 space-y-1">
+                            <div><strong class="text-slate-200">School:</strong> New Cairo STEM School, Khalid Ibn El Waleed St., New Cairo 1, Cairo, Egypt (CEEB: 064976)</div>
+                            <div><strong class="text-slate-200">Counselor Verification:</strong> Mohamed Abdelaziz Othman Kamel (mohamed.kamel@stemnewcairo.moe.edu.eg)</div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3">
+                        <a href="mailto:yousefsama502@gmail.com" class="px-5 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm flex items-center justify-center gap-2.5 transition">
+                            <i class="fa-solid fa-paper-plane"></i> yousefsama502@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/yousef-al-sayed-6727ab43a" target="_blank" rel="noopener" class="px-5 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white border border-slate-700 font-semibold text-sm flex items-center justify-center gap-2.5 transition">
+                            <i class="fa-brands fa-linkedin text-cyan-400 text-base"></i> linkedin.com/in/yousef-al-sayed-6727ab43a
+                        </a>
+                        <button onclick="window.print()" class="px-5 py-3 rounded-xl bg-slate-900/70 hover:bg-slate-800 text-slate-300 border border-slate-800 font-mono text-xs flex items-center justify-center gap-2 transition no-print">
+                            <i class="fa-solid fa-print text-amber-400"></i> Print / Save Portfolio Summary
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt-10 text-center text-xs font-mono text-slate-500">
+                © 2026 Yousef Al-Sayed Ahmed Mohamed. Engineered with precision &amp; written with purpose.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Switch Engineering Blueprint Tabs
+        function switchEngTab(tabId) {
+            const contents = document.querySelectorAll('.eng-tab-content');
+            contents.forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('grid');
+            });
+
+            const buttons = document.querySelectorAll('.eng-tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-cyan-500', 'text-slate-950', 'font-bold');
+                btn.classList.add('bg-slate-900', 'text-slate-300', 'font-semibold');
+            });
+
+            const activeContent = document.getElementById(tabId);
+            activeContent.classList.remove('hidden');
+            if (tabId !== 'tab-bom') {
+                activeContent.classList.add('grid');
+            }
+
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('bg-slate-900', 'text-slate-300', 'font-semibold');
+            activeBtn.classList.add('bg-cyan-500', 'text-slate-950', 'font-bold');
+        }
+
+        // Switch Novel Reader Tabs
+        function switchNovelTab(section) {
+            const tabs = ['synopsis', 'chapter1', 'ps'];
+            tabs.forEach(t => {
+                document.getElementById('novel-tab-' + t).classList.add('hidden');
+                const btn = document.getElementById('btn-novel-' + t);
+                btn.classList.remove('bg-amber-500', 'text-stone-950', 'font-bold');
+                btn.classList.add('bg-stone-900', 'text-stone-300', 'font-semibold');
+            });
+
+            document.getElementById('novel-tab-' + section).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-novel-' + section);
+            activeBtn.classList.remove('bg-stone-900', 'text-stone-300', 'font-semibold');
+            activeBtn.classList.add('bg-amber-500', 'text-stone-950', 'font-bold');
+
+            // Scroll reader back to top smoothly
+            document.getElementById('novelReaderViewport').scrollTop = 0;
+        }
+
+        // Reader Font Size Adjustment
+        let currentReaderSize = 18;
+        function changeReaderFontSize(delta) {
+            currentReaderSize = Math.min(26, Math.max(14, currentReaderSize + delta));
+            const viewport = document.getElementById('novelReaderViewport');
+            viewport.style.fontSize = currentReaderSize + 'px';
+        }
+
+        // Toggle Sepia Paper Reading Mode
+        function toggleReaderPaperMode() {
+            const viewport = document.getElementById('novelReaderViewport');
+            viewport.classList.toggle('reader-paper');
+        }
+
+        // Copy Email to Clipboard
+        function copyEmail() {
+            const email = 'yousefsama502@gmail.com';
+            const tempInput = document.createElement('textarea');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = 'Email copied: ' + email;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2800);
+        }
+    </script>
+</body>
+</html>
